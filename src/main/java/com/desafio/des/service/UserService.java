@@ -13,13 +13,23 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public List<User> getUsers(){
+	public List<User> getUsers() throws Exception {
 		System.out.println("aqui");
 		return userRepository.findAll();
 		
 	}
 
-	public User createUser(User user) {
+	public User createUser(User user) throws Exception  {
 		return userRepository.save(user);
+	}
+	
+	public void deleteUser(Long id) throws Exception {
+		userRepository.deleteById(id);
+		
+	}
+
+	public void updateUser(User user) throws Exception {
+		userRepository.save(user);
+		
 	}
 }
